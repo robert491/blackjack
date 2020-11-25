@@ -1,16 +1,13 @@
-require_relative 'hand'
+require_relative 'bank'
 
 class Player
-  attr_reader :name, :money, :hand
+  include Bank
 
-  INITIAL_MONEY = 100
+  attr_reader :name
+  attr_accessor :hand, :bank
 
-  def initialize(name = 'Dealer')
+  def initialize(name = 'Дилер')
     @name = name
-    @money = INITIAL_MONEY
-  end
-
-  def hand=(cards)
-    @hand = Hand.new(cards)
+    @bank = Bank::INITIAL_BANK
   end
 end

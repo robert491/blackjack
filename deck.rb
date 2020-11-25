@@ -1,12 +1,17 @@
 require_relative 'card'
+require_relative 'hand'
 
 class Deck
   def initialize
-    @deck = Card::CARDS.product(Card::SUITS).shuffle
-    @deck.map! { |card| Card.new(card) }
+    @cards = Card::CARDS.product(Card::SUITS).shuffle
+    @cards.map! { |card| Card.new(card) }
   end
 
   def deal
-    @deck.pop(2)
+    Hand.new(@cards.pop(2))
+  end
+
+  def hit
+    @cards.pop
   end
 end
