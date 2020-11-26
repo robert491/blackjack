@@ -10,7 +10,7 @@ class TerminalInterface
 
   def show_hand(player, dealer)
     player_hand = player.hand.cards.map { |card| "#{card.face}#{card.suit}" }.join
-    dealer_hand = dealer.hand.cards.size == 2 ? '* *' : '* * *'
+    dealer_hand = hidden_hand
     puts <<~TEXT
       #{player.name} - #{player_hand} (#{player.hand.value})
       #{dealer.name} - #{dealer_hand}
@@ -42,8 +42,12 @@ class TerminalInterface
     TEXT
   end
 
-  def announce_the_winner(winner)
-    puts winner.nil? ? draw : victory(winner)
+  def announce_the_victory(winner)
+    puts victory(winner)
+  end
+
+  def announce_the_draw(winner)
+    puts draw
   end
 
   def ask_player_to_continue

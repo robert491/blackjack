@@ -26,4 +26,8 @@ module Text
   def do_you_want_to_continue
     'Хотите сыграть еще? Да(1), нет(2): '
   end
+
+  def hidden_hand
+    '* *'
+  end
 end
