@@ -94,7 +94,7 @@ class Game
 
   def result
     if winner.nil?
-      @interface.announce_the_draw(winner)
+      @interface.announce_the_draw
     else
       @interface.announce_the_victory(winner)
     end

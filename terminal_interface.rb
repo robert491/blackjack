@@ -46,7 +46,7 @@ class TerminalInterface
     puts victory(winner)
   end
 
-  def announce_the_draw(winner)
+  def announce_the_draw
     puts draw
   end
 
